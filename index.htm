@@ -5,16 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script> 
+        function byId(sid){
+            return document.getElementById(sid).value;
+        }
+        function strarr2num(strarr,lim){
+            arrs = strarr.split(lim);
+            arrn = [];
+            arrs = aos.forEach(elemen => {
+                aon.push(Number(elemen))
+
+            });
+            return arrn;    
+
+        }
+        function sum ( array1, array2){
+            return array1.map(function ( num, idx){
+                return num + array2[idx];
+            })
+        }
         function traslacion(){
             //leer datos VO
             var aos = document.getElementById('ao').value;
-            aos = aos.split(',');
-            aon = [];
-            aos = aos.forEach(elemen => {
-                aon.push(Number(elemen))
-                
-            });
+            aon = strarr2num(aos, ',');
+            atn = strarr2num(byId('at'), ',');
+            document.getElementById('ar').value = sum(aon, atn)
+
             alert(aon[0] + aon [1]+ aon[2]);
+            
         }
     </script>
 </head>
@@ -23,7 +40,7 @@
     <input size="14" id="ao"/> 
     </p>
     <p>Vector Traslacion
-    <input size="14" id="ai"/> 
+    <input size="14" id="at"/> 
     </p>
     <p>Vector Resultado
     <input size="14" id="ar"/> 
