@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Escalado de Vector</title>
+</head>
+<body>
+  <script>
+    function scaleVector() {
+      // Obtener las coordenadas x e y del vector del usuario
+      var x = parseFloat(prompt("Ingresa la coordenada x del vector:"));
+      var y = parseFloat(prompt("Ingresa la coordenada y del vector:"));
+
+      // Obtener los factores de escala en x e y del usuario
+      var scaleX = parseFloat(prompt("Ingresa el factor de escala en x:"));
+      var scaleY = parseFloat(prompt("Ingresa el factor de escala en y:"));
+
+      // Definir la matriz de escala
+      var scaleMatrix = [
+        [scaleX, 0],
+        [0, scaleY]
+      ];
+
+      // Realizar la multiplicación de matriz para escalar el vector
+      var scaledX = scaleMatrix[0][0] * x + scaleMatrix[0][1] * y;
+      var scaledY = scaleMatrix[1][0] * x + scaleMatrix[1][1] * y;
+
+      // Mostrar el resultado en un mensaje emergente
+      alert(`El vector escalado es: (${scaledX.toFixed(2)}, ${scaledY.toFixed(2)})`);
+    }
+
+    // Llamar a la función al cargar la página
+    scaleVector();
+  </script>
+</body>
+</html>

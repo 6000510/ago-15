@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rotación de Vector</title>
+</head>
+<body>
+  <script>
+    function rotateVector() {
+      // Obtener el ángulo de rotación en grados del usuario
+      var angleDegrees = parseFloat(prompt("Ingresa el ángulo de rotación en grados:"));
+
+      // Convertir el ángulo a radianes
+      var angleRadians = (angleDegrees * Math.PI) / 180;
+
+      // Obtener las coordenadas x e y del vector del usuario
+      var x = parseFloat(prompt("Ingresa la coordenada x del vector:"));
+      var y = parseFloat(prompt("Ingresa la coordenada y del vector:"));
+
+      // Definir la matriz de rotación
+      var rotationMatrix = [
+        [Math.cos(angleRadians), -Math.sin(angleRadians)],
+        [Math.sin(angleRadians), Math.cos(angleRadians)]
+      ];
+
+      // Realizar la multiplicación de matriz para rotar el vector
+      var rotatedX = rotationMatrix[0][0] * x + rotationMatrix[0][1] * y;
+      var rotatedY = rotationMatrix[1][0] * x + rotationMatrix[1][1] * y;
+
+      // Mostrar el resultado en un mensaje emergente
+      alert(`El vector rotado es: (${rotatedX.toFixed(2)}, ${rotatedY.toFixed(2)})`);
+    }
+
+    // Llamar a la función al cargar la página
+    rotateVector();
+  </script>
+</body>
+</html>

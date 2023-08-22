@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traslación de Vector</title>
+</head>
+<body>
+  <script>
+    function translateVector() {
+      // Obtener las coordenadas x e y del vector del usuario
+      var x = parseFloat(prompt("Ingresa la coordenada x del vector:"));
+      var y = parseFloat(prompt("Ingresa la coordenada y del vector:"));
+
+      // Obtener las cantidades de traslación en x e y del usuario
+      var translateX = parseFloat(prompt("Ingresa la cantidad de traslación en x:"));
+      var translateY = parseFloat(prompt("Ingresa la cantidad de traslación en y:"));
+
+      // Definir la matriz de traslación
+      var translationMatrix = [
+        [1, 0, translateX],
+        [0, 1, translateY],
+        [0, 0, 1]
+      ];
+
+      // Agregar una coordenada homogénea para la matriz de traslación
+      var vectorHomogeneous = [x, y, 1];
+
+      // Realizar la multiplicación de matriz para trasladar el vector
+      var resultVector = [
+        translationMatrix[0][0] * vectorHomogeneous[0] + translationMatrix[0][1] * vectorHomogeneous[1] + translationMatrix[0][2],
+        translationMatrix[1][0] * vectorHomogeneous[0] + translationMatrix[1][1] * vectorHomogeneous[1] + translationMatrix[1][2]
+      ];
+
+      // Mostrar el resultado en un mensaje emergente
+      alert(`El vector trasladado es: (${resultVector[0].toFixed(2)}, ${resultVector[1].toFixed(2)})`);
+    }
+
+    // Llamar a la función al cargar la página
+    translateVector();
+  </script>
+</body>
+</html>
